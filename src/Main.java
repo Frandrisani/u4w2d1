@@ -1,6 +1,6 @@
 import Esercizio2.LitriKilometri;
-import esercizio1.ArrayClass;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -27,7 +27,44 @@ public class Main {
                 break;
             case 1:
                 //Esercizio 1
-                //ArrayClass arrayClass = new ArrayClass();
+                 int[] array = new int [5];
+                boolean continua =  true;
+
+                 Random rand = new Random();
+                 for (int i = 0; i < array.length; i++) {
+                     array[i] = rand.nextInt(10) +1 ;
+                 }
+
+                System.out.println("Array generato: ");
+                 for (int i = 0; i < array.length; i++) {
+                     System.out.println(array[i] + "");
+        }
+                 Scanner scc = new Scanner(System.in);
+                 do {
+                     System.out.println("Inserisci il numero da selezionare presente nella lista sopra o 0 per uscire: ");
+                     int n = scc.nextInt();
+                     if (n == 0) {continua = false;}
+                     else{
+                         for (int i = 0; i < array.length; i++) {
+                             if (array[i] == n) {
+                                 System.out.println("Il numero " + n + " è presente nella lista e si trova nella posizione " + i);
+                                 System.out.println("In quale nuova posizione da 1 a 5 vuoi spostarlo?");
+                                 int b = scc.nextInt();
+                                 if (b > 5 || b < 1) {                                 System.out.println("Inserisci un numero valido");
+                             } else {
+                                     int nuovoValore = array[i];
+                                     int vecchioValore = array[b - 1];
+                                     array[b - 1] = nuovoValore;
+                                     array[i] = vecchioValore;
+                                     System.out.println("Array modificato: ");
+                                     for (int j = 0; j < array.length; j++) {
+                                         System.out.println(array[j]);
+                             }
+                             }
+                         }
+                     }
+                 }}while (continua == false );
+
                 break;
             case 2:
                 //Esercizio 2
